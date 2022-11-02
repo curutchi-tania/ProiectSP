@@ -1,11 +1,30 @@
-public class Image {
-    private final String imageName;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Image(String imageName) {
-        this.imageName = imageName;
+public class Image implements Element{
+    private final String url;
+    private final List<Element> image = new ArrayList<>();
+
+    public Image(String url) {
+        this.url = url;
     }
 
     public void print(){
-        System.out.println(imageName);
+        image.forEach(Element::print);
+    }
+
+    @Override
+    public void add(Element element) {
+        image.add(element);
+    }
+
+    @Override
+    public void remove(Element element) {
+        image.remove(element);
+    }
+
+    @Override
+    public Element get(int e) {
+        return image.get(e);
     }
 }
