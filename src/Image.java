@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class Image implements Element{
+public class Image implements Element, Picture{
     private final String url;
     private final List<Element> image = new ArrayList<>();
 
