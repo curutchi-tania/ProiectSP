@@ -2,8 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paragraph implements Element{
-    private final String text;
+    public String text;
     private final List<Element> paragraph = new ArrayList<>();
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public Paragraph(String text) {
         this.text = text;
