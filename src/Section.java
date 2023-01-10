@@ -1,9 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Section implements Element{
+public class Section implements Element, Visitee{
     private final String title;
     private final List<Element> section = new ArrayList<>();
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitSection(this);
+    }
 
     public Section(String title) {
         this.title = title;

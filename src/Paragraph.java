@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Paragraph implements Element{
+public class Paragraph implements Element, Visitee{
     public String text;
     private final List<Element> paragraph = new ArrayList<>();
 
-    
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitParagraph(this);
+    }
+
     public String getText() {
         return text;
     }

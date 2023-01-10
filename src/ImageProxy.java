@@ -3,18 +3,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ImageProxy implements Element, Picture{
-    private final Dimension dim;
-    private final Image url;
+public class ImageProxy implements Element, Picture, Visitee{
+    private Dimension dim;
+    private Image url;
     private String imageName;
     private final List<Element> imageProxy = new ArrayList<>();
 
-    public ImageProxy(Dimension dim, Image url) {
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitImageProxy(this);
+    }
+    public void Image(Dimension dim, Image url) {
         this.dim = dim;
         this.url = url;
     }
 
-    void Image(String name) {
+    public ImageProxy(String name) {
         imageName = name;
         try {
             TimeUnit.SECONDS.sleep(5);
