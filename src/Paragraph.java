@@ -5,6 +5,7 @@ public class Paragraph implements Element{
     public String text;
     private final List<Element> paragraph = new ArrayList<>();
 
+    
     public String getText() {
         return text;
     }
@@ -36,5 +37,14 @@ public class Paragraph implements Element{
     @Override
     public Element get(int e) {
         return paragraph.get(e);
+    }
+
+    public void setAlignStrategy(AlignCenter alignCenter) {
+    }
+
+    public void setAlignStrategy(AlignRight alignRight) {
+    }
+
+    public void setAlignStrategy(AlignLeft alignLeft) {
     }
 }
